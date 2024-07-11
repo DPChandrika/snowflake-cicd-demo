@@ -9,16 +9,16 @@ on:
  
   # Allows us to run this workflow manually from the Actions tab
   workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: 'Select environment'
-        required: true
-        default: 'DEV'
-        options:
-          - DEV
-          - TST
-          - PRD
+    # inputs:
+    #   environment:
+    #     type: choice
+    #     description: 'Select environment'
+    #     required: true
+    #     default: 'DEV'
+    #     options:
+    #       - DEV
+    #       - TST
+    #       - PRD
  
 permissions:
       id-token: write
@@ -42,7 +42,7 @@ jobs:
  
       # ============ DEV ============
       - name: Deploy Snowflake objects to DEV
-        if: ${{ github.event.inputs.environment == 'DEV' }}
+        # if: ${{ github.event.inputs.environment == 'DEV' }}
         env:
           SNOWFLAKE_CONNECTIONS_ACCOUNT: ${{ secrets.SNOWFLAKE_CONNECTIONS_ACCOUNT }}
           SNOWFLAKE_CONNECTIONS_USER: ${{ secrets.SNOWFLAKE_CONNECTIONS_USER }}
